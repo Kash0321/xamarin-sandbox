@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace DeepLinking.Caller
+namespace DeepLinking.Handler
 {
     public partial class MainPage : ContentPage
     {
@@ -32,11 +32,11 @@ namespace DeepLinking.Caller
 
         void SubscribeToMessages()
         {
-            MessagingCenter.Subscribe<MainViewModel, string>(this, "GotoPage1", (obj, p) =>
+            MessagingCenter.Subscribe<MainViewModel, string>(this, "GotoPage1", async (obj, p) =>
             {
                 try
                 {
-                    DisplayAlert("Hi", "Must be App Linking to Handler Page 1", "Close");
+                    await Navigation.PushAsync(new Page1View());
                 }
                 catch (Exception ex)
                 {
@@ -44,11 +44,11 @@ namespace DeepLinking.Caller
                 }
             });
 
-            MessagingCenter.Subscribe<MainViewModel, string>(this, "GotoPage2", (obj, p) =>
+            MessagingCenter.Subscribe<MainViewModel, string>(this, "GotoPage2", async (obj, p) =>
             {
                 try
                 {
-                    DisplayAlert("Hi", "Must be App Linking to Handler Page 2", "Close");
+                    await Navigation.PushAsync(new Page2View());
                 }
                 catch (Exception ex)
                 {

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DeepLinking.Handler"
+             x:Class="DeepLinking.Handler.MainPage"
+             Title="Deep Linking - Handler">
+
+    <StackLayout VerticalOptions="CenterAndExpand">
+        <Button Text="Go to page 1" Command="{Binding GotoPage1Command}"></Button>
+        <Button Text="Go to page 2" Command="{Binding GotoPage2Command}"></Button>
+    </StackLayout>
+
+</ContentPage>

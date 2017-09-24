@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace DeepLinking.Caller
+namespace DeepLinking.Handler
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Page2View : ContentPage
