@@ -47,9 +47,10 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Diego C Pulido Julia (MXTE68WRE3)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Visual Studio: DL Handler Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -135,7 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DeepLinking.Handler\DeepLinking.Handler.csproj">
-      <Project>{e77b06c6-dd53-42dc-aa75-5023ccd05f8f}</Project>
+      <Project>{97E571AC-42D8-4746-A558-29FF2ED279D6}</Project>
       <Name>DeepLinking.Handler</Name>
     </ProjectReference>
   </ItemGroup>

@@ -47,10 +47,10 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Diego C Pulido Julia (MXTE68WRE3)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+    <CodesignProvision>Visual Studio: DL Caller Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -141,7 +141,7 @@
       <Name>DeepLinking.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\DeepLinking.Caller\DeepLinking.Caller.csproj">
-      <Project>{484b2c9a-73f0-4f51-8dba-a9d5fd149b91}</Project>
+      <Project>{A883C204-A141-4A18-AD3B-2B65DE207479}</Project>
       <Name>DeepLinking.Caller</Name>
     </ProjectReference>
   </ItemGroup>
