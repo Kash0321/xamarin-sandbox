@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\iOSOpenAppService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,6 +136,10 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DeepLinking.Core\DeepLinking.Core.csproj">
+      <Project>{d626b6b1-4159-44a7-b2d7-fcddb448b755}</Project>
+      <Name>DeepLinking.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DeepLinking.Caller\DeepLinking.Caller.csproj">
       <Project>{484b2c9a-73f0-4f51-8dba-a9d5fd149b91}</Project>
       <Name>DeepLinking.Caller</Name>

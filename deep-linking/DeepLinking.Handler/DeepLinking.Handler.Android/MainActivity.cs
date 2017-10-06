@@ -6,10 +6,18 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
 
 namespace DeepLinking.Handler.Droid
 {
-    [Activity(Label = "DeepLinking.Handler", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "DL Handler", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [IntentFilter(new[] { Intent.ActionView },
+        Categories = new[] {
+            Intent.ActionView,
+            Intent.CategoryDefault,
+            Intent.CategoryBrowsable
+        },
+        DataScheme = "kash")]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
