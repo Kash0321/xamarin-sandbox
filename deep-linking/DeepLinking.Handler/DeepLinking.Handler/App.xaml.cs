@@ -30,6 +30,11 @@ namespace DeepLinking.Handler
             base.OnAppLinkRequestReceived(uri);
         }
 
+        public async void OnAppLinkRequestReceivedWorkaround(Uri url)
+        {
+            OnAppLinkRequestReceived(url);
+        }
+
         protected override void OnStart()
         {
             // Handle when your app starts

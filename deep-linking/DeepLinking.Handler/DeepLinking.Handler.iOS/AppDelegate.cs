@@ -13,6 +13,8 @@ namespace DeepLinking.Handler.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
+        App _app;
+
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -23,9 +25,17 @@ namespace DeepLinking.Handler.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            _app = new App();
+
+            LoadApplication(_app);
 
             return base.FinishedLaunching(app, options);
+        }
+        public override bool HandleOpenURL(UIApplication application, NSUrl url)
+        {
+            _app.OnAppLinkRequestReceivedWorkaround(url);
+            return false;
         }
     }
 }
