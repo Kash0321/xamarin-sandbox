@@ -9,11 +9,15 @@ namespace DeepLinking.Caller
 {
     public partial class MainPage : ContentPage
     {
+        IOpenAppService OpenAppService = null;
+
         public MainPage()
         {
             InitializeComponent();
 
             BindingContext = new MainViewModel();
+
+            OpenAppService = DependencyService.Get<IOpenAppService>();
         }
 
         protected override void OnAppearing()
@@ -32,11 +36,18 @@ namespace DeepLinking.Caller
 
         void SubscribeToMessages()
         {
-            MessagingCenter.Subscribe<MainViewModel, string>(this, "GotoPage1", (obj, p) =>
+            MessagingCenter.Subscribe<MainViewModel, string>(this, "GotoPage1", async (obj, p) =>
             {
                 try
                 {
-                    DisplayAlert("Hi", "Must be App Linking to Handler Page 1", "Close");
+                    string uri = "kash://page/1";
+                    //DisplayAlert("Hi", "Must be App Linking to Handler Page 1", "Close");
+                    var opened = await OpenAppService.LaunchAsync(uri);
+
+                    if (!opened)
+                    {
+                        await DisplayAlert("Shit", $"Cannot open APP with URI {uri}", "Close");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -44,11 +55,18 @@ namespace DeepLinking.Caller
                 }
             });
 
-            MessagingCenter.Subscribe<MainViewModel, string>(this, "GotoPage2", (obj, p) =>
+            MessagingCenter.Subscribe<MainViewModel, string>(this, "GotoPage2", async (obj, p) =>
             {
                 try
                 {
-                    DisplayAlert("Hi", "Must be App Linking to Handler Page 2", "Close");
+                    string uri = "kash://page/2";
+                    //DisplayAlert("Hi", "Must be App Linking to Handler Page 2", "Close");
+                    var opened = await OpenAppService.LaunchAsync(uri);
+
+                    if (!opened)
+                    {
+                        await DisplayAlert("Shit", $"Cannot open APP with URI {uri}", "Close");
+                    }
                 }
                 catch (Exception ex)
                 {
