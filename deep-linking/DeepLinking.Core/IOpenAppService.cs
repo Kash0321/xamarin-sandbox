@@ -8,6 +8,6 @@ namespace DeepLinking
 {
     public interface IOpenAppService
     {
-        Task<bool> LaunchAsync(string stringUri);
+        Task<bool> LaunchAsync(string stringUri, string appPackageName);
     }
 }

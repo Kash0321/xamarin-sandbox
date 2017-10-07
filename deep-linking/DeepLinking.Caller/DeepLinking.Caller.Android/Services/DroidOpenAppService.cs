@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 using Android.App;
+using Android.Net;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -22,7 +22,7 @@ namespace DeepLinking.Caller.Droid.Services
     public class DroidOpenAppService : Activity, IOpenAppService
     {
         /// <contentfrom />
-        public Task<bool> LaunchAsync(string stringUri)
+        public Task<bool> LaunchAsync(string stringUri, string appPackageName)
         {
             #region Alternative code, but not works
 
@@ -61,6 +61,24 @@ namespace DeepLinking.Caller.Droid.Services
             }
             catch (ActivityNotFoundException)
             {
+                try
+                {
+                    var intent = new Intent(Intent.ActionView, Uri.Parse("market://details?id=" + appPackageName));
+                    // we need to add this, because the activity is in a new context.
+                    // Otherwise the runtime will block the execution and throw an exception
+                    intent.AddFlags(ActivityFlags.NewTask);
+
+                    Forms.Context.StartActivity(intent);
+                }
+                catch (ActivityNotFoundException)
+                {
+                    var intent = new Intent(Intent.ActionView, Uri.Parse("http://play.google.com/store/apps/details?id=" + appPackageName));
+                    // we need to add this, because the activity is in a new context.
+                    // Otherwise the runtime will block the execution and throw an exception
+                    intent.AddFlags(ActivityFlags.NewTask);
+
+                    Forms.Context.StartActivity(intent);
+                }
                 return Task.FromResult(false); // I was not found
             }
         }

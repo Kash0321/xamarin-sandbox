@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace DeepLinking.Handler
@@ -30,7 +30,7 @@ namespace DeepLinking.Handler
             base.OnAppLinkRequestReceived(uri);
         }
 
-        public async void OnAppLinkRequestReceivedWorkaround(Uri url)
+        public void OnAppLinkRequestReceivedWorkaround(Uri url)
         {
             OnAppLinkRequestReceived(url);
         }

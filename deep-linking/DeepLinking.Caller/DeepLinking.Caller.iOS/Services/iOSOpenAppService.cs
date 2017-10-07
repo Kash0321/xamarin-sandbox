@@ -17,8 +17,11 @@ namespace DeepLinking.Caller.iOS.Services
     public class iOSOpenAppService : IOpenAppService
     {
         /// <contentfrom />
-        public Task<bool> LaunchAsync(string stringUri)
+        public Task<bool> LaunchAsync(string stringUri, string appPackageName)
         {
+            //TODO: Falta aplicar esto: https://developer.apple.com/library/content/qa/qa1629/_index.html
+            // para que se abra el APP Store cuando la aplicación no esté instalada
+
             NSUrl request = new NSUrl(stringUri);
             try
             {
