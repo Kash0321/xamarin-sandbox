@@ -42,7 +42,7 @@ namespace DeepLinking.Caller
                 {
                     string uri = "kash://page/1";
                     //DisplayAlert("Hi", "Must be App Linking to Handler Page 1", "Close");
-                    var opened = await OpenAppService.LaunchAsync(uri);
+                    var opened = await OpenAppService.LaunchAsync(uri, "com.microsoft.office.word");
 
                     if (!opened)
                     {
@@ -61,7 +61,7 @@ namespace DeepLinking.Caller
                 {
                     string uri = "kash://page/2";
                     //DisplayAlert("Hi", "Must be App Linking to Handler Page 2", "Close");
-                    var opened = await OpenAppService.LaunchAsync(uri);
+                    var opened = await OpenAppService.LaunchAsync(uri, "com.microsoft.office.word");
 
                     if (!opened)
                     {
