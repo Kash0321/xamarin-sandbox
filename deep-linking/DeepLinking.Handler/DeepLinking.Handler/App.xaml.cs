@@ -30,6 +30,10 @@ namespace DeepLinking.Handler
             base.OnAppLinkRequestReceived(uri);
         }
 
+        /// <summary>
+        /// Workaround para ser capaces de gestionar deep linking en iOS
+        /// </summary>
+        /// <param name="url">URI Scheme al que navegar</param>
         public void OnAppLinkRequestReceivedWorkaround(Uri url)
         {
             OnAppLinkRequestReceived(url);
